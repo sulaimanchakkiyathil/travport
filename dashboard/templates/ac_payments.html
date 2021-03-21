@@ -1,0 +1,48 @@
+ {% extends 'base.html' %}
+
+ {% block content %}
+  {% include 'header.html' %}
+{% include 'mobile_nav.html' %}
+
+
+ {% include 'sidebar.html' %}
+
+    <div class="content">
+         {% include 'ac_menubar.html' %}
+<form method="POST">
+
+    {% csrf_token %}
+ <div class="form-group">
+        <select class="form-control" id="payment_customer" name="payment_customer" >
+        <option>1-SelectCustomer</option>
+        {% for customer in customers %}
+      <option>{{customer.id}}-{{customer.fname}}</option>
+              {% endfor %}
+    </select>
+     <button type="submit" class="spbut">Get Info</button>
+ </div>
+</form>
+        <table id="customers">
+  <tr>
+    <th>Name</th>
+    <th>Last Name</th>
+    <th>Dues</th>
+      <th></th>
+  </tr>
+            {% for customer in selected_customer_info %}
+            <tr>
+                 <td>{{customer.fname}}</td>
+                <td>{{customer.lname}}</td>
+                {% endfor %}
+
+
+                <td>{{customer_dues.dues}}</td>
+            {% for customer in selected_customer_info %}
+                <td><a href="/dashboard/pay/{{customer.id}}"><button type="#" class="table_but">Make Payment</button></a></button></td>
+             {% endfor %}
+            </tr>
+
+        </table>
+    </div>
+
+ {% endblock %}

@@ -1,0 +1,37 @@
+ {% extends 'base.html' %}
+
+ {% block content %}
+  {% include 'header.html' %}
+{% include 'mobile_nav.html' %}
+
+ {% include 'sidebar.html' %}
+
+<div class="content">
+    {% include 'service_menu.html' %}
+
+        <table id="customers">
+  <tr>
+    <th>Date</th>
+    <th>Customer Name</th>
+    <th>Service</th>
+      <th>Status</th>
+      <th>Supplier</th>
+      <th>Rate</th>
+      <th>Payment Status</th>
+  </tr>
+            {% for sale in sales %}
+  <tr>
+
+    <td>{{sale.sales_date}}</td>
+    <td>{{sale.cust_name}}</td>
+    <td>{{sale.product_name}}</td>
+      <td>Processing</td>
+      <td>{{sale.sup_name}}</td>
+      <td>{{sale.sales_price}}</td>
+      <td>Paid</td>
+  </tr>
+{% endfor %}
+</table>
+
+    </div>
+ {% endblock %}

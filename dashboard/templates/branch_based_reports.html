@@ -1,0 +1,112 @@
+ {% extends 'base.html' %}
+
+ {% block content %}
+  {% include 'header.html' %}
+{% include 'mobile_nav.html' %}
+
+
+ {% include 'sidebar.html' %}
+
+    <div class="content">
+         {% include 'ac_menubar.html' %}
+
+  <div>
+
+
+
+            <form class="form-inline" action="/action_page.php">
+                <h2> Branch Based Report</h2>
+
+
+  <select>
+      <option>Search Based on  </option>
+  </select>
+                <label> Start Date</label>
+                 <input type="date" class="form-control" id="#" value="" name="#" >
+                 <label> End Date  </label>
+                <input type="date" class="form-control" id="#" value="" name="#" >
+
+
+  <button type="submit">Submit</button>
+</form>
+</div>
+
+
+        <table id="customers">
+  <tr>
+
+
+    <th>SERVICE TYPE</th>
+      <th>NOS</th>
+        <th>PURCHASE COAST</th>
+    <th>P.PAYMENTS</th>
+      <th>EXP SALES</th>
+      <th>PAID SALES</th>
+      <th>BALANCE</th>
+
+  </tr>
+
+  <tr>
+
+
+
+    <td></td>
+      <td>{{sales.nos}}</td>
+      <td>{{sales.visa90_total}}</td>
+      <td></td>
+      <td>{{total_90s}}</td>
+      <td></td>
+      <td></td>
+
+  </tr>
+
+ <tr>
+
+
+    <th>DISCRIPTION</th>
+      <th>AMOUNT</th>
+
+
+  </tr>
+
+            <tr>
+
+
+    <th>Total Sales</th>
+      <th>{{sales.total_sales}}</th>
+
+
+  </tr>
+
+            <tr>
+    <th>Total Payments Recieved From Customers</th>
+      <th>{{sales.total_cust_payments}}</th>
+            </tr>
+              <tr>
+    <th>Total Payments Pending From Customers</th>
+      <th>{{sales.total_cust_pending}}</th>
+            </tr>
+                        <tr>
+    <th>Total Payments To Supplier</th>
+      <th>{{sales.total_service_purchase_coast}}</th>
+            </tr>
+
+             <tr>
+    <th>Total Dues To Supplier</th>
+      <th>{{sales.sup_dues}}</th>
+            </tr>
+
+
+             <tr>
+    <th>Expected Income</th>
+      <th>{{sales.exp_income}}</th>
+            </tr>
+             <tr>
+    <th>Net Income</th>
+      <th>{{sales.net_income}}</th>
+            </tr>
+</table>
+
+
+    </div>
+ {% endblock %}

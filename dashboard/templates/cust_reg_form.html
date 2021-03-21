@@ -1,0 +1,25 @@
+ {% extends 'base.html' %}
+
+ {% block content %}
+  {% include 'header.html' %}
+{% include 'mobile_nav.html' %}
+
+ {% include 'sidebar.html' %}
+
+{% include 'cust_menus.html' %}
+
+
+
+
+
+
+
+
+    <form method="POST">
+         {% csrf_token %}
+
+        {{reg_form}}
+         <button type="submit" class="spbut">Register</button>
+    </form>
+
+ {% endblock %}

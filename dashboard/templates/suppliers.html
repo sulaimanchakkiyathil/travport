@@ -1,0 +1,40 @@
+ {% extends 'base.html' %}
+
+ {% block content %}
+  {% include 'header.html' %}
+{% include 'mobile_nav.html' %}
+
+ {% include 'sidebar.html' %}
+
+ sup_contact=models.IntegerField(blank=True)
+    sup_contact2 = models.IntegerField(blank=True)
+    sup_email=models.EmailField(blank=True)
+    web=models.CharField(max_length=225,blank=True)
+
+    <div class="content">
+        <form method="POST">
+            {% csrf_token %}
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Name" name="name">
+        </div>
+           <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Address" name="address">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Contact" name="contact">
+        </div>
+             <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Alternate Contact" name="alt_contact">
+        </div>
+ <div class="form-group">
+    <input type="email" class="form-control"  placeholder="E-mail" name="sup_email">
+        </div>
+         <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Website" name="sup_web">
+        </div>
+         <div class="form-group">
+    <button type="submit" class="spbut">Submit</button>
+         </div>
+            </form>
+    </div>
+ {% endblock %}

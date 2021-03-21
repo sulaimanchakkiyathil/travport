@@ -1,0 +1,16 @@
+
+class cust_registration_table(models.Model):
+    fname=models.CharField(max_length=24,default=0,blank=True)
+    lname=models.CharField(max_length=24,default=0,blank=True)
+    address=models.CharField(max_length=253,default=0,blank=True)
+    contact1=models.IntegerField(null=True,blank=True,default=0)
+    alt_contact = models.IntegerField(null=True, blank=True,default=0)
+    dest_contact = models.IntegerField(null=True, blank=True,default=0)
+    dest_ref=models.CharField(max_length=256,default=0,blank=True)
+    email=models.EmailField(blank=True)
+    ref_person_name=models.CharField(max_length=225,default=0,blank=True)
+    ref_person_contact=models.CharField(max_length=225,default=0,blank=True)
+    home_address=models.CharField(max_length=225,default=0,blank=True)
+    description=models.CharField(max_length=225,default=0,blank=True)
+    date=models.DateTimeField(auto_now_add=True)
+    passport_no=models.CharField(max_length=225)
