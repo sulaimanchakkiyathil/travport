@@ -3,6 +3,7 @@
  {% block content %}
   {% include 'header.html' %}
 {% include 'mobile_nav.html' %}
+ {% load static %}
 
 
  {% include 'sidebar.html' %}
@@ -10,11 +11,8 @@
     <div class="content">
          {% include 'ac_menubar.html' %}
 
+<img src="{% static 'images/cons.jpg' %}">
 
 
-         <h1> Accountsfff</h1>
-         <h1> Accountsfff</h1>
-         <h1> Accountsfff</h1>
-         <h1> Accountsfff</h1>
     </div>
  {% endblock %}
