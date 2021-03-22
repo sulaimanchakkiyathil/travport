@@ -18,7 +18,39 @@
     <form method="POST">
          {% csrf_token %}
 
-        {{reg_form}}
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="First Name" name="fname">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Last Name" name="lname">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Address" name="address">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Contact Number" name="contact1">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Alternate Contact Number" name="alt_contact">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Destination Contact Number" name="dest_contact">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="E-Mail" name="email">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Refrence Person Name" name="ref_person_name">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Refrence Person Contact Number" name="ref_person_contact">
+        </div>
+        <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Passport Number" name="passport_no">
+        </div>
+        <div class="form-group">
+    <input type="date" class="form-control"  placeholder="DOB" name="dob">
+        </div>
          <button type="submit" class="spbut">Register</button>
     </form>
 
