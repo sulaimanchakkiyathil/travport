@@ -14,7 +14,6 @@ urlpatterns = [
     path('cust_reg/',cust_reg_form,name='cust_regist'),
     path('sales/',sales_function,name='cust_regist'),
     path('payments/',ac_payments),
-    #path('pay/<int:customer.id>',make_payment,name='make_payment'),
     path('pay/<int:cust_id>',make_payment,name='make_payment'),
     path('sup_payment/',sup_make_payment,name='sup_make_payment'),
     path('sup_pay/<int:sup_id>',sup_payment_making,name='sup_make_payment'),

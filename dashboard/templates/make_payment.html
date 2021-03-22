@@ -11,7 +11,7 @@
          {% include 'ac_menubar.html' %}
 <form method="POST">
      {% csrf_token %}
-<label for="birthday">Transaction Date:</label>
+<label for="birthday" >Transaction Date:</label>
   <input type="date" id="birthday" name="birthday">
 
            <select class="form-control" id="make_payment_customer1" name="make_payment_customer" >
@@ -21,7 +21,7 @@
                <option>Other Branch</option>
 
            </select>
-    <input type="number" class="form-control" id="payment_amount" placeholder=Amount name="payment_amount">
+    <input type="text" class="form-control" id="payment_amount" placeholder=Amount name="payment_amount">
     <input type="text" class="form-control" id="transaction_id" placeholder="Payment Refrence" name="transaction_id">
     <label for="discription">Comments</label>
     <textarea id="discription" name="discription" rows="4" cols="50">
