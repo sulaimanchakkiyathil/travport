@@ -144,7 +144,9 @@ def make_payment(request,cust_id):
 
     if request.method=='POST':
         discription = request.POST['discription']
-        ac_credit = request.POST['payment_amount']
+        #print(type(request.POST['payment_amount']))
+        ac_credit = float(request.POST['payment_amount'])
+        print(type(ac_credit))
         if ac_credit=="":
             ac_credit=0
         p_ref = request.POST['transaction_id']
