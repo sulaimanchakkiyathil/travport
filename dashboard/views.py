@@ -150,7 +150,7 @@ def make_payment(request,cust_id):
         if ac_credit=="":
             ac_credit=0
         p_ref = request.POST['transaction_id']
-        accounts=accounts_table(cust_id=cust_id,ac_discription=discription,ac_credit=ac_credit,p_ref=p_ref,ac_ref='customer_payment')
+        accounts=accounts_table(cust_id=cust_id,ac_discription=discription,ac_credit=500,p_ref=p_ref,ac_ref='customer_payment')
         accounts.save()
 
     return render(request,'make_payment.html')
