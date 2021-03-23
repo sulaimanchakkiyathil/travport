@@ -54,8 +54,8 @@ class accounts_table(models.Model):
     cust_id=models.IntegerField(blank=True,default=0)
     sup_id=models.IntegerField(blank=True,default=0)
     ac_discription=models.CharField(max_length=225)
-    ac_debit=models.FloatField(blank=True,default=0)
-    ac_credit=models.FloatField(blank=True,default=0)
+    ac_debit=models.FloatField(null=True)
+    ac_credit=models.FloatField(null=True)
     ac_balance=models.FloatField(blank=True,default=0)
     p_ref=models.CharField(max_length=225,blank=True)
 

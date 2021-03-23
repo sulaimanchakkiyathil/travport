@@ -146,7 +146,7 @@ def make_payment(request,cust_id):
         discription = request.POST['discription']
         ac_credit = request.POST['payment_amount']
         if ac_credit=="":
-            ac_debit=0
+            ac_credit=0
         p_ref = request.POST['transaction_id']
         accounts=accounts_table(cust_id=cust_id,ac_discription=discription,ac_credit=ac_credit,p_ref=p_ref,ac_ref='customer_payment')
         accounts.save()
