@@ -50,7 +50,7 @@ class sales(models.Model):
 
 class accounts_table(models.Model):
     ac_date=models.DateTimeField(auto_now_add=True)
-    ac_ref=models.CharField(max_length=10,blank=True,default=0)
+    ac_ref=models.CharField(max_length=50,blank=True,default=0)
     cust_id=models.IntegerField(blank=True,default=0)
     sup_id=models.IntegerField(blank=True,default=0)
     ac_discription=models.CharField(max_length=225)
@@ -58,7 +58,8 @@ class accounts_table(models.Model):
     ac_credit=models.FloatField(blank=True,default=0)
     ac_balance=models.FloatField(blank=True,default=0)
     p_ref=models.CharField(max_length=225,blank=True)
-    test=models.DecimalField(max_digits=12,decimal_places=2,null=True)
+
+
 
 
 
