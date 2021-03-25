@@ -103,6 +103,10 @@ def ac_payments(request):
     if request.method=="POST":
         #selected_customer = request.POST.get('payment_customer', False)
         selected_customer = request.POST['payment_customer']
+        if selected_customer=="":
+            selected_customer = "0-0"
+        elif selected_customer=="Select Customer":
+            selected_customer="0-0"
         selected_customer_ary=selected_customer.split('-')
         customer_id=selected_customer_ary[0]
         #customer_id1=1
@@ -123,9 +127,7 @@ def ac_payments(request):
         customer_dues = {
             "dues": cust_total_dues
         }
-
         print("total due is :")
-
         print(cust_total_dues)
     return render(request,'ac_payments.html',{'customers':customers,'selected_customer_info':selected_customer_info,'customer_dues':customer_dues})
 
@@ -152,6 +154,8 @@ def make_payment(request,cust_id):
         p_ref = request.POST['transaction_id']
         accounts=accounts_table(cust_id=cust_id,ac_discription=discription,ac_credit=ac_credit,p_ref=p_ref,ac_ref='customer_payment')
         accounts.save()
+        print("Data Saved")
+        return redirect("/dashboard/payments")
 
     return render(request,'make_payment.html')
 

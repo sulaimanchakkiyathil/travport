@@ -12,17 +12,18 @@
 <form method="POST">
      {% csrf_token %}
 <label for="birthday" >Transaction Date:</label>
-  <input type="date" id="birthday" name="birthday">
 
-           <select class="form-control" id="make_payment_customer1" name="make_payment_customer" >
+  <input type="date" id="birthday" name="birthday" required>
+
+           <select class="form-control" id="make_payment_customer1" name="make_payment_customer" required>
                <option>Payment Mode</option>
                <option>Cash</option>
                <option>Bank Transfer</option>
                <option>Other Branch</option>
 
            </select>
-    <input type="text" class="form-control" id="payment_amount" placeholder=Amount name="payment_amount">
-    <input type="text" class="form-control" id="transaction_id" placeholder="Payment Refrence" name="transaction_id">
+    <input type="text" class="form-control" id="payment_amount" placeholder=Amount name="payment_amount" required>
+    <input type="text" class="form-control" id="transaction_id" placeholder="Payment Refrence" name="transaction_id" required>
     <label for="discription">Comments</label>
     <textarea id="discription" name="discription" rows="4" cols="50">
     </textarea>

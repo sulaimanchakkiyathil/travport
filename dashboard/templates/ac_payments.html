@@ -13,8 +13,8 @@
 
     {% csrf_token %}
  <div class="form-group">
-        <select class="form-control" id="payment_customer" name="payment_customer" >
-        <option>1-SelectCustomer</option>
+        <select class="form-control" id="payment_customer" name="payment_customer" required>
+        <option selected >Select Customer</option>
         {% for customer in customers %}
       <option>{{customer.id}}-{{customer.fname}}</option>
               {% endfor %}
