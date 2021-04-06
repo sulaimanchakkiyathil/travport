@@ -185,7 +185,7 @@ def sup_make_payment(request):
         supplier_paid_total=sum(supplier_paid)
         print(type(total_sup_payments))
         print("supplier total :"+str(total_sup_payments))
-        supplier_due=total_sup_payments-supplier_paid_total
+        supplier_due=float(total_sup_payments)-float(supplier_paid_total)
         print(supplier_due)
 
     return render(request,'sup_make_payment.html',{'suppliers':suppliers,'selected_suppliers':selected_suppliers_info,'supplier_due':supplier_due})
@@ -270,7 +270,7 @@ def branch_based_reports(request):
         sup_payments.append(sup_payment.ac_debit)
     sup_payments_total = sum(sup_payments)
 
-    sup_dues=total_purchase_coast-sup_payments_total
+    sup_dues=float(total_purchase_coast)-float(sup_payments_total)
     exp_income=total_sales_sales_price-total_purchase_coast
     net_income=cust_payments_total-total_purchase_coast
 
