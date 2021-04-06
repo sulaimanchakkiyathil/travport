@@ -255,8 +255,10 @@ def branch_based_reports(request):
     total_payment_recieved = accounts_table.objects.filter(ac_ref='customer_payment')
     cust_payments = []
     for cust_payment in total_payment_recieved:
-        cust_payments.append(cust_payment.ac_credit)
+        cust_payments.append(float(cust_payment.ac_credit))
     cust_payments_total=sum(cust_payments)
+    print(type(total_sales_sales_price))
+    print(type(cust_payments_total))
 
     pay_pendings=(total_sales_sales_price-cust_payments_total)
 
