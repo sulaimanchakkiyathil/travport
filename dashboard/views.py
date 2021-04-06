@@ -85,7 +85,7 @@ def sales_function(request):
         customer_update_table.save()
 
 
-        accounts = accounts_table(cust_id=cust_id, ac_discription=service)
+        accounts = accounts_table(cust_id=cust_id, ac_discription=service,ac_debit=sales_rate)
         accounts.save()
 
 
