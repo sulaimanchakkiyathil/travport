@@ -75,7 +75,10 @@ def sales_function(request):
         passport_no=request.POST['passport number']
         passport_expiry1 = request.POST.get('passport_expiry1')
         dob=request.POST['dob']
-        sales_table=sales(cust_id=cust_id,cust_name=customer_name,product_id=product_id,product_name=service,sup_name=supplier_name,sales_price=sales_rate,purchase_rate=purchase_rate,sup_id=supplier_id)
+        pax_f_name=request.POST['pax_f_name']
+        pax_l_name = request.POST['pax_l_name']
+
+        sales_table=sales(cust_id=cust_id,cust_name=customer_name,product_id=product_id,product_name=service,sup_name=supplier_name,sales_price=sales_rate,purchase_rate=purchase_rate,sup_id=supplier_id,pax_f_name=pax_f_name,pax_l_name=pax_f_name)
         sales_table.save()
 
         customer_update_table=cust_registration_table.objects.get(id=cust_id)

@@ -47,6 +47,8 @@ class sales(models.Model):
     sales_price=models.FloatField(blank=True,default=0)
     paid_amount=models.FloatField(blank=True,default=0)
     balance=models.FloatField(blank=True,default=0)
+    pax_f_name=models.CharField(max_length=225,blank=True,default=0)
+    pax_l_name = models.CharField(max_length=225, blank=True, default=0)
 
 class accounts_table(models.Model):
     ac_date=models.DateTimeField(auto_now_add=True)
