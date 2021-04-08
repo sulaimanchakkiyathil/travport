@@ -43,7 +43,7 @@ def accounts(request):
 def cust_reg_form(request):
     form=cust_registration_table()
     if request.method=='POST':
-        cust_data=cust_registration_table(fname=request.POST['fname'],lname=request.POST['lname'],address=request.POST['address'],contact1=request.POST['contact1'],alt_contact=request.POST['alt_contact'],dest_contact=request.POST['dest_contact'],email=request.POST['email'],ref_person_name=request.POST['ref_person_name'],ref_person_contact=request.POST['ref_person_contact'],passport_no=request.POST['passport_no'],dob=request.POST['dob'])
+        cust_data=cust_registration_table(fname=request.POST['fname'],lname=request.POST['lname'],address=request.POST['address'],contact1=request.POST['contact1'],alt_contact=request.POST['alt_contact'],dest_contact=request.POST['dest_contact'],email=request.POST['email'],ref_person_name=request.POST['ref_person_name'],ref_person_contact=request.POST['ref_person_contact'])
         cust_data.save()
         return redirect(cust_reg_form)
 
