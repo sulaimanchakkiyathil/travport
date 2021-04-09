@@ -60,7 +60,6 @@ def sales_function(request):
         customer_name_array=customer_name_with_id.split("-")
         customer_name=customer_name_array[1]
         cust_id=customer_name_array[0]
-
         #product_id = request.POST['product_id']
         service = request.POST['service']
         supplier = request.POST['supplier']

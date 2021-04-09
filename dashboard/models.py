@@ -61,6 +61,22 @@ class accounts_table(models.Model):
     ac_balance=models.FloatField(blank=True,default=0)
     p_ref=models.CharField(max_length=225,blank=True)
 
+class saved_services(models.Model):
+    cust_name=models.CharField(max_length=50,blank=True,null=True)
+    cust_id=models.IntegerField(blank=True,default=0)
+    pax_f_name=models.CharField(max_length=50,blank=True,null=True)
+    pax_l_name = models.CharField(max_length=50, blank=True, null=True)
+    service = models.CharField(max_length=50, blank=True, null=True)
+    suppliers = models.CharField(max_length=50,blank=True,null=True)
+    purchase_rate=models.FloatField(blank=True,default=0)
+    sales_rate=models.FloatField(blank=True,default=0)
+    passport_no=models.CharField(max_length=50,blank=True,null=True)
+    passport_expiry_date=models.DateField(blank=True,null=True)
+    dob= models.DateField(blank=True, null=True)
+    dest_contact=models.CharField(max_length=50,blank=True,null=True)
+    dest_address=models.CharField(max_length=50,blank=True,null=True)
+
+
 
 
 
