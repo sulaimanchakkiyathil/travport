@@ -109,7 +109,7 @@ def sales_function(request):
 
 
 
-    return render(request,'sales.html',{'customers':customers,'products':products,'suppliers':suppliers,'saved_data':party_saved_data,'customer_name':customer_name})
+    return render(request,'sales.html',{'customers':customers,'products':products,'suppliers':suppliers,'saved_data':party_saved_data,'customer_name':customer_name,'cust_id':cust_id})
 
 def submit_sales(request,cust_id):
     print(cust_id)
