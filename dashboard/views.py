@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from dashboard.forms import cust_registration_form
-from dashboard.models import cust_registration_table, product_table, suppliers_table, sales, accounts_table
+from dashboard.models import cust_registration_table, product_table, suppliers_table, sales, accounts_table,saved_sales_data
 
 
 def dashboard(request):
@@ -53,6 +53,10 @@ def sales_function(request):
     customers=cust_registration_table.objects.all()
     products=product_table.objects.all()
     suppliers=suppliers_table.objects.all()
+    #saved_data_table=saved_services.objects.all()
+    party_saved_data = saved_sales_data.objects.filter(cust_id=100)
+    customer_name=""
+
 
     if request.method=='POST':
         product_id=100
@@ -60,6 +64,7 @@ def sales_function(request):
         customer_name_array=customer_name_with_id.split("-")
         customer_name=customer_name_array[1]
         cust_id=customer_name_array[0]
+
         #product_id = request.POST['product_id']
         service = request.POST['service']
         supplier = request.POST['supplier']
@@ -77,23 +82,49 @@ def sales_function(request):
         pax_f_name=request.POST['pax_f_name']
         pax_l_name = request.POST['pax_l_name']
 
-        sales_table=sales(cust_id=cust_id,cust_name=customer_name,product_id=product_id,product_name=service,sup_name=supplier_name,sales_price=sales_rate,purchase_rate=purchase_rate,sup_id=supplier_id,pax_f_name=pax_f_name,pax_l_name=pax_l_name)
-        sales_table.save()
+        if saved_sales_data.objects.filter(cust_id=cust_id).filter(product_name=service).filter(pax_f_name=pax_f_name).exists():
+            print("The entry already collected")
+        else:
+            saved_data=saved_sales_data(cust_id=cust_id,cust_name=customer_name,product_id=product_id,product_name=service,sup_name=supplier_name,sales_price=sales_rate,purchase_rate=purchase_rate,sup_id=supplier_id,pax_f_name=pax_f_name,pax_l_name=pax_l_name)
+            saved_data.save()
+
+
+
+        #saved_data=saved_services(cust_id=cust_id,cust_name=customer_name,product_id=product_id,product_name=service,sup_name=supplier_name,sales_price=sales_rate,purchase_rate=purchase_rate,sup_id=supplier_id,pax_f_name=pax_f_name,pax_l_name=pax_l_name)
+        #saved_data.save()
+        #sales_table=sales(cust_id=cust_id,cust_name=customer_name,product_id=product_id,product_name=service,sup_name=supplier_name,sales_price=sales_rate,purchase_rate=purchase_rate,sup_id=supplier_id,pax_f_name=pax_f_name,pax_l_name=pax_l_name)
+        #sales_table.save()
 
         customer_update_table=cust_registration_table.objects.get(id=cust_id)
-        customer_update_table.passport_no=passport_no
-        customer_update_table.passport_expiry=passport_expiry1
-        customer_update_table.dob=dob
-        customer_update_table.save()
+        #customer_update_table.passport_no=passport_no
+        #customer_update_table.passport_expiry=passport_expiry1
+        #customer_update_table.dob=dob
+        #customer_update_table.save()
 
 
-        accounts = accounts_table(cust_id=cust_id, ac_discription=service,ac_debit=sales_rate)
-        accounts.save()
+        #accounts = accounts_table(cust_id=cust_id, ac_discription=service,ac_debit=sales_rate)
+        #accounts.save()
+        party_saved_data=saved_sales_data.objects.filter(cust_id=cust_id)
 
 
 
 
-    return render(request,'sales.html',{'customers':customers,'products':products,'suppliers':suppliers})
+    return render(request,'sales.html',{'customers':customers,'products':products,'suppliers':suppliers,'saved_data':party_saved_data,'customer_name':customer_name})
+
+def submit_sales(request,cust_id):
+    print(cust_id)
+    selected_saved_data=saved_sales_data.objects.filter(cust_id=cust_id)
+    for saved_data in selected_saved_data:
+        sales_table=sales(saved_data_date=saved_data.sales_date,cust_name=saved_data.cust_name,cust_id=saved_data.cust_id,product_id=saved_data.product_id,product_name=saved_data.product_name,sup_name=saved_data.sup_name,sup_id=saved_data.sup_id,purchase_rate=saved_data.purchase_rate,sales_price=saved_data.sales_price,paid_amount=saved_data.paid_amount,balance=saved_data.balance,pax_f_name=saved_data.pax_f_name,pax_l_name=saved_data.pax_l_name)
+        sales_table.save()
+        saved_data.delete()
+        print("Sales entry added and deleted from the saved data")
+
+
+
+
+
+    return redirect('/dashboard/services/')
 
 def ac_payments(request):
     customers = cust_registration_table.objects.all()
