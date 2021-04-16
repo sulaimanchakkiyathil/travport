@@ -8,21 +8,48 @@
 
  <div class="content" xmlns="http://www.w3.org/1999/html">
      {% include 'service_menu.html' %}
+     <h1> {{customer_name}}</h1>
 
+     {% if saved_data %}
+      <table id="customers">
+            <tr>
+              <th>Pax Name</th><th>Service Name</th><th>Rate</th>
+          </tr>
+
+           {% for data in saved_data %}
+
+  <tr>
+
+    <td>{{data.pax_f_name}}</td><td>{{data.product_name}}</td><td>{{data.sales_price}}</td>
+  </tr>
+
+      {% endfor %}
+
+      </table>
+      <tr> <a href="/dashboard/submit_sales/1" >Submit  </a></tr>
+     {% endif %}
 
      <form method="POST" name="sales_form" onsubmit="return(validate()">
          {% csrf_token %}
 
+{% if saved_data %}
 
+
+
+
+{% else %}
 
     <div class="form-group">
         <select class="form-control" id="sales_secect_customer" name="customer_name" required>
-        <option value="" selecteddisabled >Select Party</option>
+        <option value="" selected disabled >Select Party</option>
         {% for customer in customers %}
       <option>{{customer.id}}-{{customer.fname}}</option>
               {% endfor %}
     </select>
     </div>
+
+{% endif %}
+
 
          <div class="form-group">
           <div class="row">
@@ -85,7 +112,7 @@
   </div>
     <button type="submit" class="spbut">Save Data</button>
 
- <button type="submit" class="spbut">Submit</button>
+         <a href="/dashboard/submit_sales/{{cust_id}}" >Submit  </a>
 
 </form>
  </div>

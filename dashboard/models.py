@@ -37,6 +37,7 @@ class suppliers_table(models.Model):
 
 class sales(models.Model):
     sales_date=models.DateTimeField(auto_now_add=True)
+    saved_data_date=models.DateField(blank=True,null=True)
     cust_name=models.CharField(max_length=225,blank=True)
     cust_id=models.IntegerField(blank=True,default=0)
     product_id=models.IntegerField(blank=True,default=0)
@@ -61,24 +62,20 @@ class accounts_table(models.Model):
     ac_balance=models.FloatField(blank=True,default=0)
     p_ref=models.CharField(max_length=225,blank=True)
 
-class saved_services(models.Model):
-    cust_name=models.CharField(max_length=50,blank=True,null=True)
-    cust_id=models.IntegerField(blank=True,default=0)
-    pax_f_name=models.CharField(max_length=50,blank=True,null=True)
-    pax_l_name = models.CharField(max_length=50, blank=True, null=True)
-    service = models.CharField(max_length=50, blank=True, null=True)
-    suppliers = models.CharField(max_length=50,blank=True,null=True)
-    purchase_rate=models.FloatField(blank=True,default=0)
-    sales_rate=models.FloatField(blank=True,default=0)
-    passport_no=models.CharField(max_length=50,blank=True,null=True)
-    passport_expiry_date=models.DateField(blank=True,null=True)
-    dob= models.DateField(blank=True, null=True)
-    dest_contact=models.CharField(max_length=50,blank=True,null=True)
-    dest_address=models.CharField(max_length=50,blank=True,null=True)
-
-
-
-
+class saved_sales_data(models.Model):
+    sales_date= models.DateTimeField(auto_now_add=True)
+    cust_name = models.CharField(max_length=225, blank=True)
+    cust_id = models.IntegerField(blank=True, default=0)
+    product_id = models.IntegerField(blank=True, default=0)
+    product_name = models.CharField(max_length=225, blank=True, default=0)
+    sup_name = models.CharField(max_length=225, blank=True, default=0)
+    sup_id = models.IntegerField(blank=True, default=0)
+    purchase_rate = models.FloatField(blank=True, default=0)
+    sales_price = models.FloatField(blank=True, default=0)
+    paid_amount = models.FloatField(blank=True, default=0)
+    balance = models.FloatField(blank=True, default=0)
+    pax_f_name = models.CharField(max_length=225, blank=True, default=0)
+    pax_l_name = models.CharField(max_length=225, blank=True, default=0)
 
 
 
