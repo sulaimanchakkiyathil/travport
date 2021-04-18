@@ -56,6 +56,7 @@ def sales_function(request):
     #saved_data_table=saved_services.objects.all()
     party_saved_data = saved_sales_data.objects.filter(cust_id=100)
     customer_name=""
+    cust_id=""
 
 
     if request.method=='POST':
