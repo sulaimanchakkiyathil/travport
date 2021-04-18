@@ -113,7 +113,6 @@ def sales_function(request):
     return render(request,'sales.html',{'customers':customers,'products':products,'suppliers':suppliers,'saved_data':party_saved_data,'customer_name':customer_name,'cust_id':cust_id})
 
 def submit_sales(request,cust_id):
-    print(cust_id)
     selected_saved_data=saved_sales_data.objects.filter(cust_id=cust_id)
     for saved_data in selected_saved_data:
         sales_table=sales(saved_data_date=saved_data.sales_date,cust_name=saved_data.cust_name,cust_id=saved_data.cust_id,product_id=saved_data.product_id,product_name=saved_data.product_name,sup_name=saved_data.sup_name,sup_id=saved_data.sup_id,purchase_rate=saved_data.purchase_rate,sales_price=saved_data.sales_price,paid_amount=saved_data.paid_amount,balance=saved_data.balance,pax_f_name=saved_data.pax_f_name,pax_l_name=saved_data.pax_l_name)
