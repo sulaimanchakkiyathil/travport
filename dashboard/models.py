@@ -26,6 +26,7 @@ class cust_registration_table(models.Model):
 
 class product_table(models.Model):
     p_name=models.CharField(max_length=225,blank=True)
+    p_category=models.CharField(max_length=225,blank=True)
 
 class suppliers_table(models.Model):
     sup_name=models.CharField(max_length=225,blank=True)
