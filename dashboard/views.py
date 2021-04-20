@@ -119,7 +119,7 @@ def submit_sales(request,cust_id):
         sales_table.save()
         saved_data.delete()
         print("Sales entry added and deleted from the saved data")
-        accounts = accounts_table(cust_id=cust_id, ac_discription=saved_data.product_name,ac_debit=saved_data.sales_price)
+        accounts = accounts_table(cust_id=cust_id, ac_discription=saved_data.product_name,ac_debit=saved_data.sales_price )
         accounts.save()
 
 

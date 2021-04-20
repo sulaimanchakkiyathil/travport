@@ -26,7 +26,7 @@
       {% endfor %}
 
       </table>
-      <tr> <a href="/dashboard/submit_sales/1" class="spbut" >Submit  </a></tr>
+      <tr> <a href="/dashboard/submit_sales/{{cust_id}}" class="spbut" >Submit  </a></tr>
      {% endif %}
 
      <form method="POST" name="sales_form" onsubmit="return(validate()">
