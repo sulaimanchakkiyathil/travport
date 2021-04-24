@@ -29,7 +29,7 @@
       <tr> <a href="/dashboard/submit_sales/{{cust_id}}" class="spbut" >Submit  </a></tr>
      {% endif %}
 
-     <form method="POST" name="sales_form" onsubmit="return(validate()">
+     <form method="POST" name="sales_form" onsubmit="return(validate()" id="sales_form">
          {% csrf_token %}
 
 {% if saved_data %}
@@ -40,8 +40,8 @@
 {% else %}
 
     <div class="form-group">
-        <select class="form-control" id="sales_secect_customer" name="customer_name" required>
-        <option value="" selected disabled >Select Party</option>
+        <select class="form-control" id="sales_secect_customer" name="customer_name" onchange="get_party()" required>
+        <option value="" selected disabled id="select_party">Select Party</option>
         {% for customer in customers %}
       <option>{{customer.id}}-{{customer.fname}}</option>
               {% endfor %}

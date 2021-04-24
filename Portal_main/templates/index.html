@@ -35,6 +35,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		  </script>
 
+		<style>
+			.logout_btn{
+  padding: 5px;
+  background: #19B3D3;
+  text-decoration: none;
+  float: right;
+  margin-top: -30px;
+  margin-right: -50px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+		</style>
+
 	</head>
 	<body>
 			<div class="header">
@@ -42,6 +60,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="logo">
 					<a href="index.html"><img src="{% static 'images/logo1.jpg' %}" title="logo" width="15%"/></a>
 				</div>
+
+					<div class="right_area">
+        						<a href="/login" class="logout_btn">Login</a>
+      						</div>
+
+
 				<div class="contact-info">
 					<ul>
 						<li>Help line</li>
@@ -75,9 +99,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 				       
         		<li><a href="contact.html">Contact</a></li>
-        		</div>	
-    		</ul>
-		
+
+
+				</div>
+			</ul>
+		</div>
 		<div class="clear"> </div>
 			<!--start-image-slider---->
 					<div class="image-slider">

@@ -122,10 +122,6 @@ def submit_sales(request,cust_id):
         accounts = accounts_table(cust_id=cust_id, ac_discription=saved_data.product_name,ac_debit=saved_data.sales_price )
         accounts.save()
 
-
-
-
-
     return redirect('/dashboard/services/')
 
 def ac_payments(request):
