@@ -3,7 +3,7 @@ from django.urls import path
 
 from . import views
 from .views import dashboard, customers, suppliers, services, accounts, cust_reg_form, sales_function, ac_payments, \
-    make_payment, ticketing, branch_based_reports, sup_make_payment, sup_payment_making, submit_sales
+    make_payment, ticketing, branch_based_reports, sup_make_payment, sup_payment_making, submit_sales, del_saved_sale
 
 urlpatterns = [
     path('',dashboard),
@@ -19,7 +19,10 @@ urlpatterns = [
     path('sup_pay/<int:sup_id>',sup_payment_making,name='sup_make_payment'),
     path('tickets/',ticketing),
     path('branch_report/',branch_based_reports),
-    path('submit_sales/<int:cust_id>/',submit_sales)
+    path('submit_sales/<int:cust_id>/',submit_sales),
+    path('del_saved_sale/<int:id>',del_saved_sale),
+
+
 
 
     ]

@@ -8,19 +8,19 @@
 
  <div class="content" xmlns="http://www.w3.org/1999/html">
      {% include 'service_menu.html' %}
-     <h1> {{customer_name}}</h1>
+
 
      {% if saved_data %}
       <table id="customers">
             <tr>
-              <th>Pax Name</th><th>Service Name</th><th>Rate</th>
+              <th>Pax Name</th><th>Service Name</th><th>Rate</th><th></th>
           </tr>
 
            {% for data in saved_data %}
 
   <tr>
 
-    <td>{{data.pax_f_name}}</td><td>{{data.product_name}}</td><td>{{data.sales_price}}</td>
+    <td>{{data.pax_f_name}}</td><td>{{data.product_name}}</td><td>{{data.sales_price}}</td><td><a href="/dashboard/del_saved_sale/{{data.id}}" class="sml_btn">Cancel</a> </td>
   </tr>
 
       {% endfor %}
@@ -34,8 +34,9 @@
 
 {% if saved_data %}
 
-
-
+<div class="col">
+      <input type="text" class="form-control" placeholder="" name="customer_name" value="{{cust_id}}-{{customer_name}}" readonly>
+    </div>
 
 {% else %}
 

@@ -54,18 +54,16 @@ def sales_function(request):
     products=product_table.objects.all()
     suppliers=suppliers_table.objects.all()
     #saved_data_table=saved_services.objects.all()
-    party_saved_data = saved_sales_data.objects.filter(cust_id=100)
+    party_saved_data = saved_sales_data.objects.filter(cust_id=0)
     customer_name=""
     cust_id=""
-
-
     if request.method=='POST':
         product_id=100
+
         customer_name_with_id = request.POST['customer_name']
         customer_name_array=customer_name_with_id.split("-")
         customer_name=customer_name_array[1]
         cust_id=customer_name_array[0]
-
         #product_id = request.POST['product_id']
         service = request.POST['service']
         supplier = request.POST['supplier']
@@ -123,6 +121,13 @@ def submit_sales(request,cust_id):
         accounts.save()
 
     return redirect('/dashboard/services/')
+
+def del_saved_sale(request,id):
+    selected_data=saved_sales_data.objects.get(id=id).delete()
+    return redirect('/dashboard/sales')
+
+
+
 
 def ac_payments(request):
     customers = cust_registration_table.objects.all()
