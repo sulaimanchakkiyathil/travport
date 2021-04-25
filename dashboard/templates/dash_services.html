@@ -21,6 +21,7 @@
       <th>Payment Status</th>
   </tr>
             {% for sale in sales %}
+              <a href="www.google.com">
   <tr>
 
     <td>{{sale.sales_date}}</td>
@@ -31,7 +32,9 @@
       <td>{{sale.sup_name}}</td>
       <td>{{sale.sales_price}}</td>
       <td>Paid</td>
+
   </tr>
+                   </a>
 {% endfor %}
 </table>
 

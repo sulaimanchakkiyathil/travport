@@ -32,8 +32,6 @@ def suppliers(request):
 def services(request):
     sales_table=sales.objects.all()
 
-
-
     return render(request,'dash_services.html',{'sales':sales_table})
 
 def accounts(request):
