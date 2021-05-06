@@ -60,10 +60,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="logo">
 					<a href="index.html"><img src="{% static 'images/logo1.jpg' %}" title="logo" width="15%"/></a>
 				</div>
-
+					{% if user.is_authenticated %}
+					<div class="right_area">
+        						<a href="/login" class="logout_btn">Logout</a>
+      						</div>
+					{% else %}
 					<div class="right_area">
         						<a href="/login" class="logout_btn">Login</a>
       						</div>
+					{% endif %}
 
 
 				<div class="contact-info">

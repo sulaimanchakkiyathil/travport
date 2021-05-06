@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login
 
@@ -7,12 +8,10 @@ def login(request):
 
         username=request.POST.get('username')
         password=request.POST.get('password')
-        user=authenticate(request,username=username,password=password)
+        user=auth.authenticate(username=username,password=password)
         if user is not None:
+
             return redirect('/dashboard/')
         else:
             print("not a valid user")
-
-
-
     return render(request,'login.html')
